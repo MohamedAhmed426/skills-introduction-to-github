@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .list {
+            background: #f9f9f9;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .list-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            background: #e9ecef;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Registration Form</h2>
+        <form id="registrationForm">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            
+            <button type="submit">Register</button>
+        </form>
+
+        <h3>Registered Users</h3>
+        <div class="list" id="userList">
+            <!-- Registered users will be added here -->
+        </div>
+    </div>
+
+    <script>
+        const form = document.getElementById('registrationForm');
+        const userList = document.getElementById('userList');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            // Get input values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+
+            // Create a new list item
+            const listItem = document.createElement('div');
+            listItem.className = 'list-item';
+            listItem.textContent = `Name: ${name}, Email: ${email}`;
+
+            // Add the list item to the user list
+            userList.appendChild(listItem);
+
+            // Clear the form fields
+            form.reset();
+        });
+    </script>
+</body>
+</html>
